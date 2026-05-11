@@ -1,4 +1,4 @@
-const CACHE_NAME = 'etracker-v4'; // Bumped to v4
+const CACHE_NAME = 'etracker-v5'; // New version
 const ASSETS = [
   './',
   './ETracker.html',
@@ -6,15 +6,13 @@ const ASSETS = [
   './expense_app_icon_512x512.png'
 ];
 
-// Install: Save files to cache
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
   );
-  self.skipWaiting(); // Force the new service worker to take over immediately
+  self.skipWaiting();
 });
 
-// Activate: Clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -25,7 +23,6 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch: Serve from cache, then network
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
