@@ -1,0 +1,15 @@
+{
+  "name": "Expense Tracker",
+  "short_name": "Exp Tracker",
+  "start_url": "ExpTracker.html",
+  "display": "standalone",
+  "background_color": "#f0f8ff",
+  "theme_color": "#03045e",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
