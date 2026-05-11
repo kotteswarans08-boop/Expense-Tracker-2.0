@@ -1,12 +1,11 @@
-const CACHE_NAME = 'etracker-v2'; // Changed from v1 to v2 to force an update
+const CACHE_NAME = 'etracker-v3'; // Increased to v3 to force a fresh update
 const ASSETS = [
-  './',
-  './ETracker.html',
-  './manifest.json',
-  './expense_app_icon_512x512.png'
+  '/Expense-Tracker-2.0/',
+  '/Expense-Tracker-2.0/ETracker.html',
+  '/Expense-Tracker-2.0/manifest.json',
+  '/Expense-Tracker-2.0/expense_app_icon_512x512.png'
 ];
 
-// This part saves your app to the phone/computer memory
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -15,7 +14,6 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// This part makes it work without internet
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
