@@ -1,8 +1,9 @@
-const CACHE_NAME = 'etracker-v1';
+const CACHE_NAME = 'etracker-v2'; // Changed from v1 to v2 to force an update
 const ASSETS = [
+  './',
   './ETracker.html',
   './manifest.json',
-  './icon.png'
+  './expense_app_icon_512x512.png'
 ];
 
 // This part saves your app to the phone/computer memory
