@@ -1,15 +1,16 @@
 {
-  "name": "Expense Tracker",
-  "short_name": "Exp Tracker",
-  "start_url": "./ExpTracker.html",
+  "name": "Personal Expense Tracker",
+  "short_name": "ETracker",
+  "start_url": "./ETracker.html",
   "display": "standalone",
   "background_color": "#f0f8ff",
   "theme_color": "#03045e",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "./expense_app_icon_512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
