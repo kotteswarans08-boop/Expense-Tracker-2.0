@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Personal Expense Tracker — Team Tech Royal</title>
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="./manifest.json">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -2132,6 +2132,15 @@ function showToast(msg){const t=document.getElementById('toast');t.textContent=m
 
 document.getElementById('gs-modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');});
 document.getElementById('create-trip-modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');});
+</script>
+   <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker registered!', reg))
+        .catch(err => console.log('Service Worker failed:', err));
+    });
+  }
 </script>
 </body>
 </html>
