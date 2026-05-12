@@ -2,9 +2,16 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
+<!-- PWA -->
+<link rel="manifest" href="/Expense-Tracker-2.0/manifest.json">
+<meta name="theme-color" content="#03045e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ExpenseTracker">
+<link rel="apple-touch-icon" href="/Expense-Tracker-2.0/expense_app_icon_512x512.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Personal Expense Tracker — Team Tech Royal</title>
-<link rel="manifest" href="./manifest.json">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -2133,12 +2140,17 @@ function showToast(msg){const t=document.getElementById('toast');t.textContent=m
 document.getElementById('gs-modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');});
 document.getElementById('create-trip-modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');});
 </script>
-   <script>
+<!-- PWA Service Worker Registration -->
+<script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(reg => console.log('Service Worker registered!', reg))
-        .catch(err => console.log('Service Worker failed:', err));
+      navigator.serviceWorker.register('/Expense-Tracker-2.0/sw.js', {
+        scope: '/Expense-Tracker-2.0/'
+      }).then(reg => {
+        console.log('SW registered, scope:', reg.scope);
+      }).catch(err => {
+        console.warn('SW registration failed:', err);
+      });
     });
   }
 </script>
